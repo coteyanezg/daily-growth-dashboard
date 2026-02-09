@@ -1,0 +1,1663 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Growth Routine — Niuro & Enderys</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+            color: #1a202c;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* HEADER */
+        .header {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-intro {
+            color: #64748b;
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            max-width: 900px;
+        }
+
+        .header-intro p {
+            margin-bottom: 10px;
+        }
+
+        /* BRAND TABS */
+        .tab-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .tab-btn {
+            padding: 12px 24px;
+            background: none;
+            border: none;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #94a3b8;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+        }
+
+        .tab-btn:hover {
+            color: #64748b;
+        }
+
+        .tab-btn.active {
+            color: #1a202c;
+        }
+
+        .tab-btn.niuro.active {
+            border-bottom-color: #4f46e5;
+        }
+
+        .tab-btn.enderys.active {
+            border-bottom-color: #10b981;
+        }
+
+        /* PROGRESS BAR */
+        .progress-section {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .progress-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #1a202c;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .metric-card {
+            background: #f8fafc;
+            padding: 16px;
+            border-radius: 10px;
+            border-left: 4px solid #cbd5e1;
+        }
+
+        .metric-label {
+            font-size: 13px;
+            color: #64748b;
+            font-weight: 500;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .metric-value {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a202c;
+        }
+
+        .niuro .metric-card {
+            border-left-color: #4f46e5;
+        }
+
+        .enderys .metric-card {
+            border-left-color: #10b981;
+        }
+
+        /* PROGRESS BARS */
+        .progress-bar-container {
+            margin-top: 15px;
+        }
+
+        .progress-bar-label {
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            color: #64748b;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 12px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4f46e5, #7c3aed);
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+
+        .enderys .progress-fill {
+            background: linear-gradient(90deg, #10b981, #059669);
+        }
+
+        /* CARDS GRID */
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #1a202c;
+        }
+
+        /* COMPETITORS PANEL */
+        .competitors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .competitor-card {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 16px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .competitor-card:hover {
+            border-color: #cbd5e1;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .competitor-card.active {
+            border-color: #4f46e5;
+            background: #eef2ff;
+        }
+
+        .enderys .competitor-card.active {
+            border-color: #10b981;
+            background: #ecfdf5;
+        }
+
+        .competitor-logo {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 8px;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .competitor-name {
+            font-weight: 600;
+            font-size: 13px;
+            margin-bottom: 6px;
+            color: #1a202c;
+        }
+
+        .competitor-handle {
+            font-size: 12px;
+            color: #64748b;
+            margin-bottom: 8px;
+        }
+
+        .competitor-handle a {
+            color: #4f46e5;
+            text-decoration: none;
+            transition: text-decoration 0.2s ease;
+        }
+
+        .enderys .competitor-handle a {
+            color: #10b981;
+        }
+
+        .competitor-handle a:hover {
+            text-decoration: underline;
+        }
+
+        .action-handle a {
+            color: #4f46e5;
+            text-decoration: none;
+            transition: text-decoration 0.2s ease;
+        }
+
+        .enderys .action-handle a {
+            color: #10b981;
+        }
+
+        .action-handle a:hover {
+            text-decoration: underline;
+        }
+
+        .comment-author a {
+            color: #4f46e5;
+            text-decoration: none;
+            transition: text-decoration 0.2s ease;
+        }
+
+        .enderys .comment-author a {
+            color: #10b981;
+        }
+
+        .comment-author a:hover {
+            text-decoration: underline;
+        }
+
+        .warning-banner {
+            background: #fef3c7;
+            border: 2px solid #f59e0b;
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .warning-banner span:first-child {
+            font-size: 1.3em;
+        }
+
+        .warning-banner span:last-child {
+            color: #92400e;
+            font-weight: 600;
+        }
+
+        .info-banner {
+            background: #eff6ff;
+            border: 2px solid #3b82f6;
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-banner span:first-child {
+            font-size: 1.3em;
+        }
+
+        .info-banner span:last-child {
+            color: #1e40af;
+            font-weight: 500;
+        }
+
+        .post-link-btn {
+            display: inline-block;
+            background: #4f46e5;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 8px;
+            transition: background 0.2s ease;
+        }
+
+        .enderys .post-link-btn {
+            background: #10b981;
+        }
+
+        .post-link-btn:hover {
+            opacity: 0.9;
+        }
+
+        .competitor-followers {
+            font-size: 11px;
+            font-weight: 600;
+            color: #4f46e5;
+            background: #f0f4ff;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        .enderys .competitor-followers {
+            color: #10b981;
+            background: #f0fdf4;
+        }
+
+        /* ACTIONS GRID */
+        .actions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .action-card {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 16px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .action-card:hover {
+            border-color: #cbd5e1;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .action-card.selected {
+            border-color: #4f46e5;
+            background: #f5f3ff;
+        }
+
+        .enderys .action-card.selected {
+            border-color: #10b981;
+            background: #f0fdf4;
+        }
+
+        .action-card input[type="checkbox"] {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .action-card-content {
+            padding-right: 40px;
+        }
+
+        .action-card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .action-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            flex-shrink: 0;
+        }
+
+        .action-handle {
+            font-weight: 600;
+            color: #1a202c;
+            font-size: 14px;
+        }
+
+        .action-source {
+            font-size: 12px;
+            color: #64748b;
+            margin-bottom: 8px;
+        }
+
+        .action-bio {
+            font-size: 13px;
+            color: #475569;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .action-stats {
+            display: flex;
+            gap: 12px;
+            font-size: 12px;
+            color: #64748b;
+            margin-top: 12px;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .stat-value {
+            font-weight: 600;
+            color: #1a202c;
+        }
+
+        .action-badge {
+            display: inline-block;
+            background: #fef08a;
+            color: #854d0e;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-top: 12px;
+        }
+
+        /* COMMENT SECTION */
+        .comment-card {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 16px;
+            transition: all 0.3s ease;
+            margin-bottom: 16px;
+        }
+
+        .comment-card:hover {
+            border-color: #cbd5e1;
+        }
+
+        .comment-card.selected {
+            border-color: #4f46e5;
+            background: #f5f3ff;
+        }
+
+        .enderys .comment-card.selected {
+            border-color: #10b981;
+            background: #f0fdf4;
+        }
+
+        .comment-card input[type="checkbox"] {
+            margin-right: 12px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .comment-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .comment-post-info {
+            flex: 1;
+        }
+
+        .comment-author {
+            font-weight: 600;
+            color: #1a202c;
+            font-size: 14px;
+        }
+
+        .comment-caption {
+            font-size: 13px;
+            color: #64748b;
+            margin-bottom: 12px;
+            max-height: 60px;
+            overflow: hidden;
+        }
+
+        .comment-textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            resize: vertical;
+            min-height: 80px;
+            margin-bottom: 8px;
+        }
+
+        .comment-textarea:focus {
+            outline: none;
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        .enderys .comment-textarea:focus {
+            border-color: #10b981;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .comment-tone {
+            display: inline-block;
+            background: #dbeafe;
+            color: #0c4a6e;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        /* ARCHITECTURE DIAGRAM */
+        .architecture-container {
+            background: #f8fafc;
+            border: 2px dashed #cbd5e1;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+
+        .flow-diagram {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .flow-box {
+            background: white;
+            border: 2px solid #cbd5e1;
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+            min-width: 140px;
+            flex: 1;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .flow-box.source {
+            border-color: #4f46e5;
+            background: #f5f3ff;
+        }
+
+        .flow-box.processing {
+            border-color: #f59e0b;
+            background: #fffbeb;
+        }
+
+        .flow-box.action {
+            border-color: #10b981;
+            background: #f0fdf4;
+        }
+
+        .flow-box-title {
+            font-weight: 600;
+            font-size: 13px;
+            color: #1a202c;
+            margin-bottom: 4px;
+        }
+
+        .flow-box-desc {
+            font-size: 11px;
+            color: #64748b;
+        }
+
+        .flow-arrow {
+            font-size: 24px;
+            color: #94a3b8;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        /* ROADMAP */
+        .roadmap-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .roadmap-phase {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-left: 4px solid #4f46e5;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .enderys .roadmap-phase {
+            border-left-color: #10b981;
+        }
+
+        .roadmap-phase h4 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #1a202c;
+        }
+
+        .roadmap-phase ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .roadmap-phase li {
+            font-size: 13px;
+            color: #475569;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .roadmap-phase li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+            color: #4f46e5;
+        }
+
+        .enderys .roadmap-phase li:before {
+            color: #10b981;
+        }
+
+        /* KPI CHART */
+        .kpi-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .kpi-card {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .kpi-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 16px;
+        }
+
+        .kpi-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: #4f46e5;
+            margin-bottom: 8px;
+        }
+
+        .enderys .kpi-value {
+            color: #10b981;
+        }
+
+        .kpi-description {
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        /* BUTTONS */
+        .action-buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(79, 70, 229, 0.4);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .enderys .btn-primary {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+
+        .enderys .btn-primary:hover {
+            box-shadow: 0 8px 16px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-secondary {
+            background: #f1f5f9;
+            color: #64748b;
+            border: 1px solid #cbd5e1;
+        }
+
+        .btn-secondary:hover {
+            background: #e2e8f0;
+        }
+
+        .selection-counter {
+            font-size: 14px;
+            font-weight: 600;
+            color: #64748b;
+            margin-top: 16px;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            color: #64748b;
+            font-size: 13px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin-top: 40px;
+        }
+
+        .footer p {
+            margin-bottom: 8px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background: #fef08a;
+            color: #854d0e;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 12px;
+        }
+
+        /* TAB CONTENT */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* COLLAPSIBLE */
+        .collapsible {
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .collapsible-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 0;
+        }
+
+        .collapsible-icon {
+            font-size: 14px;
+            transition: transform 0.3s ease;
+        }
+
+        .collapsible.collapsed .collapsible-icon {
+            transform: rotate(-90deg);
+        }
+
+        .collapsible-content {
+            display: block;
+        }
+
+        .collapsible.collapsed .collapsible-content {
+            display: none;
+        }
+
+        /* PRINT STYLES */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .tab-container {
+                display: none;
+            }
+
+            .btn {
+                display: none;
+            }
+
+            .section {
+                page-break-inside: avoid;
+            }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .actions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .competitors-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+
+            .flow-diagram {
+                flex-direction: column;
+            }
+
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .section {
+                padding: 20px;
+            }
+        }
+
+        /* DATA CONTENT SECTIONS */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <h1>📈 Daily Growth Routine — <span id="currentDate"></span></h1>
+
+            <div class="header-intro">
+                <p><strong>Flujo de trabajo automatizado para crecimiento orgánico de Instagram</strong></p>
+                <p>Este workflow diario permite a MJ ejecutar 3 acciones clave por perfil (Sigue, Stories, Comentarios) seleccionando de listas curadas por IA. El sistema está diseñado para generar +900 seguidores/mes por perfil a través de interacciones auténticas y estratégicas. La automatización maneja la recopilación de datos, el filtrado y la generación de propuestas; MJ solo selecciona y ejecuta las acciones finales.</p>
+            </div>
+
+            <!-- TAB NAVIGATION -->
+            <div class="tab-container">
+                <button class="tab-btn niuro active" onclick="switchTab('niuro')">🟣 Niuro</button>
+                <button class="tab-btn enderys" onclick="switchTab('enderys')">🟢 Enderys</button>
+            </div>
+        </div>
+
+        <!-- NIURO TAB CONTENT -->
+        <div id="niuro-content" class="tab-content active">
+            <!-- PROGRESS SECTION -->
+            <div class="progress-section niuro">
+                <div class="progress-title">Progreso de hoy — Niuro</div>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-label">Sigue Completado</div>
+                        <div class="metric-value"><span id="niuro-follows-done">0</span>/30</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Stories Completado</div>
+                        <div class="metric-value"><span id="niuro-stories-done">0</span>/5</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Comentarios Completado</div>
+                        <div class="metric-value"><span id="niuro-comments-done">0</span>/5</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Progreso Total</div>
+                        <div class="metric-value"><span id="niuro-total-progress">0</span>%</div>
+                    </div>
+                </div>
+                <div class="progress-bar-label">Acción 1: Sigue</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="niuro-follows-bar" style="width: 0%;"></div>
+                </div>
+                <div class="progress-bar-label">Acción 2: Stories</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="niuro-stories-bar" style="width: 0%;"></div>
+                </div>
+                <div class="progress-bar-label">Acción 3: Comentarios</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="niuro-comments-bar" style="width: 0%;"></div>
+                </div>
+            </div>
+
+            <!-- COMPETITORS UNIVERSE -->
+            <div class="section niuro">
+                <div class="section-title">🌐 Universo de Competidores — Niuro</div>
+                <p style="color: #64748b; font-size: 13px; margin-bottom: 16px;">Selecciona competidores activos para extraer seguidores. Hoy se rotan automáticamente.</p>
+                <div class="competitors-grid" id="niuro-competitors">
+                    <!-- Generated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- ACTION 1: FOLLOWS -->
+            <div class="section niuro">
+                <div class="section-title">👥 Acción 1: Sigue 30 Cuentas Nuevas</div>
+                <p style="color: #64748b; font-size: 13px; margin-bottom: 16px;">Seguimos a los seguidores de nuestros competidores. Se sugieren 50 cuentas. Selecciona 30 para seguir.</p>
+                <div class="actions-grid" id="niuro-follows-grid">
+                    <!-- Generated by JavaScript -->
+                </div>
+                <div class="selection-counter">Seleccionadas: <span id="niuro-follows-count">0</span>/30</div>
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="executeAction('niuro', 'follows')">✅ Ejecutar Sigue Seleccionados</button>
+                    <button class="btn btn-secondary" onclick="resetSelection('niuro', 'follows')">Limpiar selección</button>
+                </div>
+            </div>
+
+            <!-- ACTION 2: STORIES -->
+            <div class="section niuro">
+                <div class="section-title">📸 Acción 2: Cura 5 Posts para Stories</div>
+                <p style="color: #64748b; font-size: 13px; margin-bottom: 16px;">Se sugieren 10 posts de medios, líderes de opinión y marcas tech. Selecciona 5 para repostear.</p>
+                <div class="actions-grid" id="niuro-stories-grid">
+                    <!-- Generated by JavaScript -->
+                </div>
+                <div class="selection-counter">Seleccionadas: <span id="niuro-stories-count">0</span>/5</div>
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="executeAction('niuro', 'stories')">📤 Crear Stories Seleccionadas</button>
+                    <button class="btn btn-secondary" onclick="resetSelection('niuro', 'stories')">Limpiar selección</button>
+                </div>
+            </div>
+
+            <!-- ACTION 3: COMMENTS -->
+            <div class="section niuro">
+                <div class="section-title">💬 Acción 3: Comenta en 5 Publicaciones</div>
+                <p style="color: #64748b; font-size: 13px; margin-bottom: 16px;">Se sugieren 10 posts de partners, líderes de opinión y medios con comentarios generados por IA. Edita y selecciona 5 para publicar.</p>
+                <div id="niuro-comments-grid">
+                    <!-- Generated by JavaScript -->
+                </div>
+                <div class="selection-counter">Seleccionadas: <span id="niuro-comments-count">0</span>/5</div>
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="executeAction('niuro', 'comments')">💬 Publicar Comentarios Seleccionados</button>
+                    <button class="btn btn-secondary" onclick="resetSelection('niuro', 'comments')">Limpiar selección</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ENDERYS TAB CONTENT -->
+        <div id="enderys-content" class="tab-content">
+            <!-- PROGRESS SECTION -->
+            <div class="progress-section enderys">
+                <div class="progress-title">Progreso de hoy — Enderys</div>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-label">Sigue Completado</div>
+                        <div class="metric-value"><span id="enderys-follows-done">0</span>/30</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Stories Completado</div>
+                        <div class="metric-value"><span id="enderys-stories-done">0</span>/5</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Comentarios Completado</div>
+                        <div class="metric-value"><span id="enderys-comments-done">0</span>/5</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Progreso Total</div>
+                        <div class="metric-value"><span id="enderys-total-progress">0</span>%</div>
+                    </div>
+                </div>
+                <div class="progress-bar-label">Acción 1: Sigue</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="enderys-follows-bar" style="width: 0%;"></div>
+                </div>
+                <div class="progress-bar-label">Acción 2: Stories</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="enderys-stories-bar" style="width: 0%;"></div>
+                </div>
+                <div class="progress-bar-label">Acción 3: Comentarios</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="enderys-comments-bar" style="width: 0%;"></div>
+                </div>
+            </div>
+
+            <!-- COMPETITORS UNIVERSE -->
+            <div class="section enderys">
+                <div class="section-title">🌐 Universo de Competidores — Enderys</div>
+                <p style="color: #64748b; font-size: 13px; margin-bottom: 16px;">Selecciona competidores activos para extraer seguidores. Hoy se rotan automáticamente.</p>
+                <div class="competitors-grid" id="enderys-competitors">
+                    <!-- Generated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- ACTION 1: FOLLOWS -->
+            <div class="section enderys">
+                <div class="section-title">👥 Acción 1: Sigue 30 Cuentas Nuevas</div>
+                <p style="color: #64748b; font-size: 13px; margin-bottom: 16px;">Seguimos a los seguidores de nuestros competidores. Se sugieren 50 cuentas. Selecciona 30 para seguir.</p>
+                <div class="actions-grid" id="enderys-follows-grid">
+                    <!-- Generated by JavaScript -->
+                </div>
+                <div class="selection-counter">Seleccionadas: <span id="enderys-follows-count">0</span>/30</div>
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="executeAction('enderys', 'follows')">✅ Ejecutar Sigue Seleccionados</button>
+                    <button class="btn btn-secondary" onclick="resetSelection('enderys', 'follows')">Limpiar selección</button>
+                </div>
+            </div>
+
+            <!-- ACTION 2: STORIES -->
+            <div class="section enderys">
+                <div class="section-title">📸 Acción 2: Cura 5 Posts para Stories</div>
+                <p style="color: #64748b; font-size: 13px; margin-bottom: 16px;">Se sugieren 10 posts de medios, líderes de opinión y marcas tech. Selecciona 5 para repostear.</p>
+                <div class="actions-grid" id="enderys-stories-grid">
+                    <!-- Generated by JavaScript -->
+                </div>
+                <div class="selection-counter">Seleccionadas: <span id="enderys-stories-count">0</span>/5</div>
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="executeAction('enderys', 'stories')">📤 Crear Stories Seleccionadas</button>
+                    <button class="btn btn-secondary" onclick="resetSelection('enderys', 'stories')">Limpiar selección</button>
+                </div>
+            </div>
+
+            <!-- ACTION 3: COMMENTS -->
+            <div class="section enderys">
+                <div class="section-title">💬 Acción 3: Comenta en 5 Publicaciones</div>
+                <p style="color: #64748b; font-size: 13px; margin-bottom: 16px;">Se sugieren 10 posts de partners, líderes de opinión y medios con comentarios generados por IA. Edita y selecciona 5 para publicar.</p>
+                <div id="enderys-comments-grid">
+                    <!-- Generated by JavaScript -->
+                </div>
+                <div class="selection-counter">Seleccionadas: <span id="enderys-comments-count">0</span>/5</div>
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="executeAction('enderys', 'comments')">💬 Publicar Comentarios Seleccionados</button>
+                    <button class="btn btn-secondary" onclick="resetSelection('enderys', 'comments')">Limpiar selección</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SHARED SECTIONS -->
+        <!-- ARCHITECTURE DIAGRAM -->
+        <div class="section">
+            <div class="section-title collapsible" onclick="toggleCollapsible(this)">
+                <span class="collapsible-icon">▶</span>
+                🏗️ Arquitectura del Workflow
+            </div>
+            <div class="collapsible-content">
+                <div class="architecture-container">
+                    <div style="margin-bottom: 20px; padding: 16px; background: #dbeafe; border-radius: 8px; border-left: 4px solid #3b82f6;">
+                        <strong style="color: #0c4a6e;">Arquitectura del Workflow:</strong>
+                        <p style="color: #0c4a6e; font-size: 13px; margin-top: 8px; margin-bottom: 0;">🔄 <strong>Fuentes de Seguidores:</strong> Competidores (Niuro: Acid Labs, Turing, BairesDev, etc. | Enderys: VambeAI, Betterfly, etc.)<br/>📸💬 <strong>Fuentes de Contenido:</strong> Medios tech, líderes de opinión, marcas tech y partners (FayerWayer, Xataka, Platzi, Google Gemini, Claude AI, OpenAI, NotCo, Buk, Bloomberg, etc.)</p>
+                    </div>
+                    <div class="flow-diagram">
+                        <div class="flow-box source">
+                            <div class="flow-box-title">Fuentes</div>
+                            <div class="flow-box-desc">Competidores + Medios</div>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-box processing">
+                            <div class="flow-box-title">IA Processing</div>
+                            <div class="flow-box-desc">Filtro & Puntuación</div>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-box action">
+                            <div class="flow-box-title">Dashboard</div>
+                            <div class="flow-box-desc">Selección MJ</div>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-box source">
+                            <div class="flow-box-title">Ejecución</div>
+                            <div class="flow-box-desc">API Instagram</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 20px; padding: 16px; background: #f0f4ff; border-radius: 8px;">
+                    <strong style="color: #1a202c;">Stack Tecnológico Propuesto:</strong>
+                    <ul style="margin-top: 8px; margin-left: 20px; color: #475569; font-size: 13px;">
+                        <li><strong>Orquestación:</strong> n8n, Make, o Enderys (workflow builder)</li>
+                        <li><strong>Scraping:</strong> Playwright, Python requests + BeautifulSoup</li>
+                        <li><strong>IA:</strong> Claude API (puntuación, generación de comentarios)</li>
+                        <li><strong>Dashboard:</strong> Este archivo HTML + backend Node.js/Python</li>
+                        <li><strong>Integración IG:</strong> Meta Business Suite API o Instagrapi (unofficial)</li>
+                        <li><strong>Notificaciones:</strong> Email o Slack para alertas diarias</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- IMPLEMENTATION ROADMAP -->
+        <div class="section">
+            <div class="section-title collapsible" onclick="toggleCollapsible(this)">
+                <span class="collapsible-icon">▶</span>
+                🗺️ Roadmap de Implementación
+            </div>
+            <div class="collapsible-content">
+                <div class="roadmap-container">
+                    <div class="roadmap-phase">
+                        <h4>🟣 Fase 1 (Semana 1): Setup</h4>
+                        <ul>
+                            <li>Compilar lista de competidores</li>
+                            <li>Configurar scraping de perfiles</li>
+                            <li>Build dashboard template</li>
+                            <li>Documentar workflow manual</li>
+                        </ul>
+                    </div>
+                    <div class="roadmap-phase">
+                        <h4>🟠 Fase 2 (Semana 2): IA & Contenido</h4>
+                        <ul>
+                            <li>Entrenar modelos de puntuación</li>
+                            <li>Generar comentarios con Claude</li>
+                            <li>Lógica de curación de stories</li>
+                            <li>Testing con 1 perfil piloto</li>
+                        </ul>
+                    </div>
+                    <div class="roadmap-phase">
+                        <h4>🟢 Fase 3 (Semana 3): Automatización</h4>
+                        <ul>
+                            <li>Full daily automation pipeline</li>
+                            <li>Email/Slack notifications</li>
+                            <li>Dashboard real-time analytics</li>
+                            <li>Rollout a 4 perfiles</li>
+                        </ul>
+                    </div>
+                    <div class="roadmap-phase">
+                        <h4>⭐ Fase 4 (Continuo): Optimización</h4>
+                        <ul>
+                            <li>A/B testing de estrategias</li>
+                            <li>Seguimiento de métricas (ROI)</li>
+                            <li>Escalado a más perfiles</li>
+                            <li>Feedback loop + ajustes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- KPI EXPECTATIONS -->
+        <div class="section">
+            <div class="section-title collapsible" onclick="toggleCollapsible(this)">
+                <span class="collapsible-icon">▶</span>
+                📊 KPIs Proyectados
+            </div>
+            <div class="collapsible-content">
+                <div class="kpi-container">
+                    <div class="kpi-card">
+                        <div class="kpi-title">👥 Crecimiento de Seguidores</div>
+                        <div class="kpi-value">+900/mes</div>
+                        <div class="kpi-description">Por perfil (30/día × 30 días). Supone 3-5% follow-back rate.</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-title">📈 Alcance en Stories</div>
+                        <div class="kpi-value">+40-60%</div>
+                        <div class="kpi-description">Reposteos de contenido relevante aumentan alcance orgánico.</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-title">💬 Engagement en Comentarios</div>
+                        <div class="kpi-value">5-10% reply</div>
+                        <div class="kpi-description">De los 5 comentarios/día, esperado 0.25-0.5 respuestas.</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-title">🔗 Conexiones de Red</div>
+                        <div class="kpi-value">+150-200/mes</div>
+                        <div class="kpi-description">Nuevas conexiones genuinas (seguidores + engagement).</div>
+                    </div>
+                </div>
+                <div style="margin-top: 24px; padding: 20px; background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border-radius: 10px; border-left: 4px solid #4f46e5;">
+                    <strong style="color: #1a202c;">Proyección a 4 Meses:</strong>
+                    <ul style="margin-top: 12px; margin-left: 20px; color: #475569; font-size: 13px;">
+                        <li>Mes 1: +900 seguidores/perfil (baseline)</li>
+                        <li>Mes 2: +1,200 seguidores/perfil (network effect)</li>
+                        <li>Mes 3: +1,500 seguidores/perfil (reputación creciente)</li>
+                        <li>Mes 4: +1,800 seguidores/perfil (cohesión del ecosistema)</li>
+                        <li><strong>Total proyectado: +5,400 seguidores/perfil en 4 meses</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <p>📋 Propuesta generada por MJ + Claude Code | Febrero 2026</p>
+            <p><span class="status-badge">PROPUESTA — Pendiente aprobación</span></p>
+            <p style="margin-top: 12px; font-size: 12px;">Este dashboard es un prototipo completamente interactivo. En producción, se integrará con un backend que ejecute scraping diario, IA y APIs de Instagram.</p>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // DATA
+        const niuroCompetitors = [
+            { name: 'Acid Labs', handle: '@weareacidlabs', url: 'https://www.instagram.com/weareacidlabs/', followers: 5381 },
+            { name: 'Turing', handle: '@turingcom', url: 'https://www.instagram.com/turingcom/', followers: 61000 },
+            { name: 'BairesDev', handle: '@bairesdev', url: 'https://www.instagram.com/bairesdev/', followers: 20000 },
+            { name: 'Globant', handle: '@Globant', url: 'https://www.instagram.com/Globant/', followers: 166000 },
+            { name: 'Accenture Chile', handle: '@accenturechile', url: 'https://www.instagram.com/accenturechile/', followers: 6092 },
+            { name: 'Fintual', handle: '@fintual', url: 'https://www.instagram.com/fintual/', followers: 80000 },
+            { name: 'Laborum', handle: '@laborum', url: 'https://www.instagram.com/laborum/', followers: 21000 },
+            { name: 'Lupa Hire', handle: '@lupahire', url: 'https://www.instagram.com/lupahire/', followers: 2658 },
+            { name: 'Gini Talent', handle: '@ginitalentglobal', url: 'https://www.instagram.com/ginitalentglobal/', followers: 1952 }
+        ];
+
+        const enderysCompetitors = [
+            { name: 'VambeAI', handle: '@vambeai', url: 'https://www.instagram.com/vambeai/', followers: 26000 },
+            { name: 'Betterfly', handle: '@gobetterfly', url: 'https://www.instagram.com/gobetterfly/', followers: 65000 },
+            { name: 'Lemontech', handle: '@lemontech_latam', url: 'https://www.instagram.com/lemontech_latam/', followers: 5500 },
+            { name: 'Rankmi', handle: '@rankmioficial', url: 'https://www.instagram.com/rankmioficial/', followers: 4900 },
+            { name: 'Fintoc', handle: '@fintoc', url: 'https://www.instagram.com/fintoc/', followers: 3500 },
+            { name: 'Clodi', handle: '@clodi.cl', url: 'https://www.instagram.com/clodi.cl/', followers: 1000 }
+        ];
+
+        const niuroFollowsBios = [
+            { handle: '@carlos_devops_cl', bio: 'Senior DevOps Engineer | Cloud Architecture', followers: 3200, score: 92 },
+            { handle: '@sofia_fullstack', bio: 'Fullstack Developer | React + Node.js', followers: 2800, score: 89 },
+            { handle: '@juan_startup_mx', bio: 'Co-founder at TechStart | Hiring Engineers', followers: 5600, score: 95 },
+            { handle: '@maria_ai_engineer', bio: 'AI/ML Engineer | Computer Vision', followers: 1900, score: 88 },
+            { handle: '@diego_backend', bio: 'Backend Engineer | Golang | Cloud-native', followers: 2300, score: 87 },
+            { handle: '@laura_frontend', bio: 'Frontend Engineer | Design Systems | UX', followers: 3100, score: 86 },
+            { handle: '@pedro_arquitecto', bio: 'Software Architect | Enterprise Systems', followers: 4200, score: 91 },
+            { handle: '@ana_devrel', bio: 'Developer Relations | Tech Community', followers: 2600, score: 85 },
+            { handle: '@martinez_qa', bio: 'QA Engineer | Automation Testing | CI/CD', followers: 1700, score: 84 },
+            { handle: '@tech_recruiter_mx', bio: 'Tech Recruiter | Hiring for LATAM', followers: 6800, score: 93 },
+            { handle: '@luis_python', bio: 'Python Developer | Data Science', followers: 2100, score: 82 },
+            { handle: '@fernanda_pm', bio: 'Product Manager | Tech Strategy', followers: 3400, score: 87 },
+            { handle: '@victor_startup', bio: 'CTO | Early-stage Startups | Advisor', followers: 4900, score: 94 },
+            { handle: '@gabriela_design', bio: 'Product Designer | UI/UX | Tech', followers: 2400, score: 80 },
+            { handle: '@alejandro_eng', bio: 'Engineering Manager | Leadership', followers: 3600, score: 88 },
+            { handle: '@rosa_cloud', bio: 'Cloud Architect | AWS | Infrastructure', followers: 2700, score: 86 },
+            { handle: '@daniel_mobile', bio: 'Mobile Developer | iOS & Android', followers: 1900, score: 81 },
+            { handle: '@catalina_agile', bio: 'Agile Coach | Scrum Master', followers: 2200, score: 79 },
+            { handle: '@rafael_security', bio: 'Security Engineer | DevSecOps', followers: 2050, score: 85 },
+            { handle: '@beatriz_ai', bio: 'AI Product Manager | ML Ops', followers: 1650, score: 83 }
+        ];
+
+        const enderysFollowsBios = [
+            { handle: '@workflow_expert_cl', bio: 'Automation Expert | Business Process', followers: 2800, score: 91 },
+            { handle: '@marta_nocode', bio: 'No-code Specialist | Zapier | Make', followers: 3200, score: 89 },
+            { handle: '@ignacio_automation', bio: 'RPA Engineer | Automation Architecture', followers: 2400, score: 88 },
+            { handle: '@elena_saas', bio: 'SaaS Consultant | Digital Transformation', followers: 4100, score: 90 },
+            { handle: '@sergio_erp', bio: 'ERP Consultant | Business Systems', followers: 3600, score: 87 },
+            { handle: '@juanma_data', bio: 'Data Engineer | ETL | Analytics', followers: 2600, score: 85 },
+            { handle: '@vanessa_hr_tech', bio: 'HR Tech Specialist | Talent Management', followers: 2300, score: 84 },
+            { handle: '@ricardo_crm', bio: 'CRM Strategist | Salesforce Expert', followers: 3900, score: 86 },
+            { handle: '@paula_integration', bio: 'Systems Integration Specialist', followers: 2100, score: 83 },
+            { handle: '@hector_digital', bio: 'Digital Transformation Lead', followers: 3700, score: 88 },
+            { handle: '@monica_ops', bio: 'Operations Manager | Process Optimization', followers: 2200, score: 82 },
+            { handle: '@valentin_api', bio: 'API Architect | Integration Systems', followers: 1900, score: 80 },
+            { handle: '@cristina_workflow', bio: 'Workflow Designer | Business Analysis', followers: 2000, score: 81 },
+            { handle: '@andres_efficiency', bio: 'Efficiency Consultant | Automation', followers: 2500, score: 84 },
+            { handle: '@isabel_innovation', bio: 'Innovation Manager | Tech Strategy', followers: 3200, score: 87 },
+            { handle: '@marcos_compliance', bio: 'Compliance Officer | Governance', followers: 1800, score: 79 },
+            { handle: '@natalia_scale', bio: 'Scaling Expert | Business Growth', followers: 2700, score: 85 },
+            { handle: '@franco_devops', bio: 'DevOps for SaaS | Infrastructure', followers: 2300, score: 82 },
+            { handle: '@gabriele_backend', bio: 'Backend Systems | Microservices', followers: 1700, score: 78 },
+            { handle: '@ximena_pm', bio: 'Product Manager | SaaS | Marketplace', followers: 3400, score: 86 }
+        ];
+
+        const niuroStories = [
+            { author: '@googlegemini', url: 'https://www.instagram.com/googlegemini/', caption: 'The first Gemini Drops of 2026 is here! 🍪', engagement: 6009, brand_score: 95, postUrl: 'https://www.instagram.com/googlegemini/reel/DUgf3qZkuFI/' },
+            { author: '@startupeable', url: 'https://www.instagram.com/startupeable/', caption: 'Un agente de IA creó su propia red social esta semana...', engagement: 70, brand_score: 94, postUrl: 'https://www.instagram.com/startupeable/reel/DUf-7KmgKqQ/' },
+            { author: '@andresbilbao', url: 'https://www.instagram.com/andresbilbao/', caption: 'Vos ya lo viste? #negocios #startup', engagement: 3086, brand_score: 93, postUrl: 'https://www.instagram.com/andresbilbao/reel/DUipSP2kahe/' },
+            { author: '@forbeschile', url: 'https://www.instagram.com/forbeschile/', caption: 'Astrid Mirkin: TikTok leader transforming South America tech', engagement: 45, brand_score: 91, postUrl: 'https://www.instagram.com/forbeschile/p/DUiwtOuiVIh/' },
+            { author: '@claudeai', url: 'https://www.instagram.com/claudeai/', caption: 'AI tools that scale with your team', engagement: 4500, brand_score: 92, postUrl: 'https://www.instagram.com/claudeai/reel/DUbscJPDlUa/' },
+            { author: '@_thelevelupclub', url: 'https://www.instagram.com/_thelevelupclub/', caption: 'El estrés laboral no siempre grita. A veces se disfraza de insomnio...', engagement: 2555, brand_score: 88, postUrl: 'https://www.instagram.com/_thelevelupclub/reel/DUivBvyjgkv/' },
+            { author: '@laterceracom', url: 'https://www.instagram.com/laterceracom/', caption: 'Noticias: Transformación digital en Chile 2026', engagement: 5200, brand_score: 85, postUrl: 'https://www.instagram.com/laterceracom/p/DUi52mxEj3C/' },
+            { author: '@adnchile', url: 'https://www.instagram.com/adnchile/', caption: 'Cobertura: El sector tech crece en Chile', engagement: 4100, brand_score: 84, postUrl: 'https://www.instagram.com/adnchile/p/DUi5PtICRXh/' },
+            { author: '@diariofinanciero', url: 'https://www.instagram.com/diariofinanciero/', caption: 'Análisis económico: Inversión en talento tech es clave', engagement: 296, brand_score: 86, postUrl: 'https://www.instagram.com/diariofinanciero/p/DUieLkiDTOT/' },
+            { author: '@buk_chile', url: 'https://www.instagram.com/buk_chile/', caption: 'HR Platform para empresas en transformación digital', engagement: 3400, brand_score: 90, postUrl: 'https://www.instagram.com/p/DUWBrWSifdi/?igsh=MW1ybnUxazMzZ3RycQ==' }
+        ];
+
+        const enderysStories = [
+            { author: '@artificialmente.ia', url: 'https://www.instagram.com/artificialmente.ia/', caption: 'El repliegue de Meta del metaverso ya es una realidad', engagement: 1370, comments: 108, brand_score: 95, postUrl: 'https://www.instagram.com/artificialmente.ia/reel/DUi9OSEjrKP/', suggestion: 'El metaverso de Meta se repliega... ¿El futuro es la IA aplicada? En Enderys creamos agentes que sí generan valor real para las empresas' },
+            { author: '@therundownai', url: 'https://www.instagram.com/therundownai/', caption: 'AI NEWS: Google upgrades Chrome with AI that can complete tasks for you', engagement: 0, comments: 0, brand_score: 94, postUrl: 'https://www.instagram.com/therundownai/p/DUb0ebdk2xm/', suggestion: 'Google integra IA que completa tareas por ti. En Enderys, nuestros agentes de IA ya lo hacen — sin código y adaptados a tu negocio' },
+            { author: '@rackslabs', url: 'https://www.instagram.com/rackslabs/', caption: 'Google acaba de dejar en ridículo al sistema educativo', engagement: 78100, comments: 15000, brand_score: 93, postUrl: 'https://www.instagram.com/rackslabs/reel/DUYilO0EoL-/', suggestion: 'La IA está transformando la educación y los negocios. ¿Tu empresa ya automatizó sus procesos? Conoce Enderys' },
+            { author: '@google', url: 'https://www.instagram.com/google/', caption: 'Football translator - Use AI Mode in Search', engagement: 819, comments: 36, brand_score: 92, postUrl: 'https://www.instagram.com/p/DUgXdV0kXTK/', suggestion: 'Google sigue apostando por AI Mode. La automatización inteligente es el presente — y en Enderys lo hacemos accesible para todos' },
+            { author: '@artificialintelligence.co', url: 'https://www.instagram.com/artificialintelligence.co/', caption: 'Google\'s Project Genie 3 AI world model', engagement: 0, comments: 0, brand_score: 91, postUrl: 'https://www.instagram.com/artificialintelligence.co/p/DUY0JkwkwS6/', suggestion: 'Project Genie de Google crea mundos con IA. Nosotros creamos workflows inteligentes que transforman tu operación diaria' },
+            { author: '@roubymarcos', url: 'https://www.instagram.com/roubymarcos/', caption: 'Herramientas de IA que deberías aprender este 2026', engagement: 568, comments: 93, brand_score: 90, postUrl: 'https://www.instagram.com/roubymarcos/reel/DUgn-MyETyP/', suggestion: 'Las herramientas de IA imprescindibles para 2026. ¿Conoces los agentes sin código? Descubre Enderys' },
+            { author: '@forbeschile', url: 'https://www.instagram.com/forbeschile/', caption: '#Tecnología: Microsoft admite que entregó al FBI claves para desbloquear datos', engagement: 487, comments: 16, brand_score: 88, postUrl: 'https://www.instagram.com/p/DT3-7G-lbEu/', suggestion: 'La privacidad y la tecnología en constante tensión. En Enderys, la IA trabaja para tu empresa con total control y transparencia' },
+            { author: '@saasflash', url: 'https://www.instagram.com/saasflash/', caption: 'AI spending limits', engagement: 67, comments: 0, brand_score: 86, postUrl: 'https://www.instagram.com/p/DUi6S58EyTd/', suggestion: 'Los costos de IA preocupan a muchos. Con Enderys, automatizas sin sorpresas — workflows eficientes y sin código' },
+            { author: '@kevcorenstein', url: 'https://www.instagram.com/kevcorenstein/', caption: 'En Tokio hay una tienda que solo vende camisetas blancas... y está triunfando', engagement: 35, comments: 4, brand_score: 85, postUrl: 'https://www.instagram.com/kevcorenstein/p/DUg2dajiHVc/', suggestion: 'Innovación y simplicidad: la fórmula del éxito. Así es como diseñamos nuestros agentes de IA en Enderys' },
+            { author: '@artificialintelligenceee', url: 'https://www.instagram.com/artificialintelligenceee/', caption: 'AI content', engagement: 0, comments: 0, brand_score: 84, postUrl: 'https://www.instagram.com/p/DT_h21xkyIO/', suggestion: 'La IA no para de evolucionar. ¿Tu empresa evoluciona con ella? Automatiza con Enderys' }
+        ];
+
+        const niuroComments = [
+            { author: '@buk_chile', url: 'https://www.instagram.com/buk_chile/', caption: 'HR platform para empresas en transformación', suggested: 'En Niuro creemos que la gestión de talento tech va de la mano con plataformas como Buk. La digitalización del HR es clave para retener a los mejores 🚀', tone: 'professional', postUrl: 'https://www.instagram.com/buk_chile/reel/DUig0KMD1lR/' },
+            { author: '@startupeable', url: 'https://www.instagram.com/startupeable/', caption: 'Un agente de IA creó su propia red social', suggested: 'Increíble cómo la IA está transformando todo. En Niuro vemos esto de primera mano conectando talento tech con empresas que están construyendo el futuro 💡', tone: 'professional', postUrl: 'https://www.instagram.com/startupeable/reel/DUf-7KmgKqQ/' },
+            { author: '@andresbilbao', url: 'https://www.instagram.com/andresbilbao/', caption: 'Co-founder Rappi - Negocios & Startups', suggested: 'Gran contenido! El ecosistema emprendedor LATAM necesita más de esto. Desde Niuro apoyamos a las startups que escalan con el talento correcto 🙌', tone: 'professional', postUrl: 'https://www.instagram.com/andresbilbao/reel/DUipSP2kahe/' },
+            { author: '@googlegemini', url: 'https://www.instagram.com/googlegemini/', caption: 'The first Gemini Drops of 2026 is here!', suggested: 'The AI race keeps getting more exciting! At Niuro we help companies find the tech talent that builds these kind of breakthroughs 🤖', tone: 'professional', postUrl: 'https://www.instagram.com/googlegemini/reel/DUbWextEp1U/' },
+            { author: '@forbeschile', url: 'https://www.instagram.com/forbeschile/', caption: 'Astrid Mirkin: TikTok leader in South America', suggested: 'Excelente artículo. La innovación en Chile necesita del talento adecuado, y eso es justo lo que hacemos en Niuro: conectar empresas con los mejores devs 🇨🇱', tone: 'professional', postUrl: 'https://www.instagram.com/forbeschile/p/DUEGMU1lb6N/' },
+            { author: '@claudeai', url: 'https://www.instagram.com/claudeai/', caption: 'AI tools and features for 2026', suggested: 'Love seeing AI tools evolve so fast! We use Claude daily at Niuro to boost our team\'s productivity. Game changer for tech recruitment 🔥', tone: 'casual', postUrl: 'https://www.instagram.com/claudeai/reel/DUWFfCTjkhL/' },
+            { author: '@_thelevelupclub', url: 'https://www.instagram.com/_thelevelupclub/', caption: 'El estrés laboral y el bienestar en el trabajo', suggested: 'Muy importante hablar de bienestar laboral. En Niuro nos aseguramos que nuestros devs trabajen en ambientes sanos y con balance real 💪', tone: 'professional', postUrl: 'https://www.instagram.com/_thelevelupclub/reel/DUivBvyjgkv/' },
+            { author: '@laterceracom', url: 'https://www.instagram.com/laterceracom/', caption: 'Transformación digital en Chile', suggested: 'Interesante perspectiva. La tecnología está cambiando Chile y desde Niuro aportamos conectando el talento que impulsa esa transformación', tone: 'professional', postUrl: 'https://www.instagram.com/laterceracom/reel/DUi0dUACHcq/' },
+            { author: '@adnchile', url: 'https://www.instagram.com/adnchile/', caption: 'Sector tech en crecimiento', suggested: 'Buena cobertura! El sector tech en Chile sigue creciendo y en Niuro estamos al centro de esa evolución, conectando talento con oportunidades 🎯', tone: 'professional', postUrl: 'https://www.instagram.com/adnchile/reel/DUizNPWDxVh/' },
+            { author: '@diariofinanciero', url: 'https://www.instagram.com/diariofinanciero/', caption: 'Inversión en talento tech: clave para crecimiento', suggested: 'El crecimiento económico va de la mano con la inversión en talento tech. En Niuro ayudamos a las empresas a encontrar los perfiles que necesitan para escalar', tone: 'professional', postUrl: 'https://www.instagram.com/diariofinanciero/p/DUieLkiDTOT/' }
+        ];
+
+        const enderysComments = [
+            { author: '@therundownai', url: 'https://www.instagram.com/therundownai/', caption: 'Anthropic just released a new Claude model', followers: 272000, suggested: 'Anthropic sigue innovando con Claude. En Enderys integramos estos modelos para crear agentes de IA que automatizan procesos empresariales sin código 🤖', tone: 'professional', postUrl: 'https://www.instagram.com/therundownai/p/DUbtjVNkd6v/' },
+            { author: '@artificialmente.ia', url: 'https://www.instagram.com/artificialmente.ia/', caption: 'Mark Zuckerberg convirtió las gafas de IA en un smartphone', followers: 328000, suggested: 'La IA wearable es fascinante, pero la IA aplicada a procesos de negocio es donde está el verdadero impacto. En Enderys ayudamos a empresas a automatizar con agentes inteligentes 🚀', tone: 'professional', postUrl: 'https://www.instagram.com/artificialmente.ia/reel/DUi9OSEjrKP/' },
+            { author: '@rackslabs', url: 'https://www.instagram.com/rackslabs/', caption: 'Google y el sistema educativo', followers: 147000, suggested: 'Increíble cómo la IA está redefiniendo la educación y los negocios. Nosotros en Enderys vemos esto todos los días — empresas que automatizan procesos que antes tomaban horas ⚡', tone: 'professional', postUrl: 'https://www.instagram.com/rackslabs/reel/DUbIWg0CeeZ/' },
+            { author: '@roubymarcos', url: 'https://www.instagram.com/roubymarcos/', caption: 'Herramientas de IA para 2026', followers: 25100, suggested: 'Gran selección! Agregaría las plataformas de agentes de IA sin código como Enderys, que permiten crear workflows automatizados sin programar 🔧', tone: 'professional', postUrl: 'https://www.instagram.com/roubymarcos/reel/DUbnKV-kb2O/' },
+            { author: '@artificialintelligence.co', url: 'https://www.instagram.com/artificialintelligence.co/', caption: 'OpenAI Frontier platform for enterprises', followers: 0, suggested: 'Las plataformas enterprise de IA están creciendo rápido. En Enderys ofrecemos agentes y workflows de IA sin código para empresas de todos los tamaños 💡', tone: 'professional', postUrl: 'https://www.instagram.com/artificialintelligence.co/p/DUi0LJbCdYB/' },
+            { author: '@forbeschile', url: 'https://www.instagram.com/forbeschile/', caption: 'Microsoft y privacidad', followers: 0, suggested: 'La privacidad en la era de la IA es clave. En Enderys diseñamos workflows donde las empresas mantienen el control total de sus datos y procesos 🔐', tone: 'professional', postUrl: 'https://www.instagram.com/forbeschile/p/DT3-7G-lbEu/' },
+            { author: '@google', url: 'https://www.instagram.com/google/', caption: 'AI Mode in Search', followers: 0, suggested: 'AI Mode está transformando cómo buscamos información. En Enderys llevamos la IA un paso más allá: agentes que ejecutan tareas completas por ti 🎯', tone: 'professional', postUrl: 'https://www.instagram.com/p/DUgXdV0kXTK/' },
+            { author: '@claudeai', url: 'https://www.instagram.com/claudeai/', caption: 'AI tools content', followers: 0, suggested: 'Claude es un modelo increíble. En Enderys lo integramos como motor de nuestros agentes de IA empresariales — automatización inteligente sin código 🌟', tone: 'professional', postUrl: 'https://www.instagram.com/claudeai/reel/DUWFfCTjkhL/' },
+            { author: '@wordpressdotcom', url: 'https://www.instagram.com/wordpressdotcom/', caption: 'WordPress + AI', followers: 0, suggested: 'WordPress + IA es una combinación poderosa. En Enderys integramos IA en flujos de trabajo para potenciar cualquier plataforma 🔌', tone: 'professional', postUrl: 'https://www.instagram.com/p/DUYr-0ED8nG/' },
+            { author: '@forbes', url: 'https://www.instagram.com/forbes/', caption: 'Business/Tech content', followers: 0, suggested: 'La tecnología sigue redefiniendo los negocios. En Enderys ayudamos a empresas a subirse a esta ola con agentes de IA y automatización sin código 📊', tone: 'professional', postUrl: 'https://www.instagram.com/p/DUEbfCZAf3i/' }
+        ];
+
+        // INITIALIZATION
+        document.addEventListener('DOMContentLoaded', function() {
+            initDashboard();
+        });
+
+        function initDashboard() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('currentDate').textContent = now.toLocaleDateString('es-ES', options);
+
+            renderCompetitors('niuro');
+            renderCompetitors('enderys');
+            renderFollows('niuro');
+            renderFollows('enderys');
+            renderStories('niuro');
+            renderStories('enderys');
+            renderComments('niuro');
+            renderComments('enderys');
+        }
+
+        function switchTab(brand) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+
+            document.getElementById(brand + '-content').classList.add('active');
+            document.querySelector('.tab-btn.' + brand).classList.add('active');
+        }
+
+        function renderCompetitors(brand) {
+            const competitors = brand === 'niuro' ? niuroCompetitors : enderysCompetitors;
+            const container = document.getElementById(brand + '-competitors');
+            container.innerHTML = '';
+
+            // Add info banner
+            const infoBanner = document.createElement('div');
+            infoBanner.className = 'info-banner';
+            infoBanner.innerHTML = `
+                <span>📊</span>
+                <span>Monitoreamos la actividad de nuestros competidores y captamos seguidores de sus perfiles como estrategia de crecimiento.</span>
+            `;
+            container.parentElement.insertBefore(infoBanner, container);
+
+            competitors.forEach((comp, idx) => {
+                const initial = comp.name.charAt(0);
+                const card = document.createElement('div');
+                card.className = 'competitor-card active';
+                card.onclick = () => toggleCompetitor(card);
+                card.innerHTML = `
+                    <div class="competitor-logo">${initial}</div>
+                    <div class="competitor-name">${comp.name}</div>
+                    <div class="competitor-handle"><a href="${comp.url}" target="_blank" rel="noopener">${comp.handle}</a></div>
+                    <div class="competitor-followers">${comp.followers.toLocaleString()} IG</div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function toggleCompetitor(card) {
+            card.classList.toggle('active');
+        }
+
+        function renderFollows(brand) {
+            const bios = brand === 'niuro' ? niuroFollowsBios : enderysFollowsBios;
+            const competitors = brand === 'niuro' ? niuroCompetitors : enderysCompetitors;
+            const container = document.getElementById(brand + '-follows-grid');
+            container.innerHTML = '';
+
+            // Add info banner
+            const infoBanner = document.createElement('div');
+            infoBanner.className = 'info-banner';
+            infoBanner.innerHTML = `
+                <span>ℹ️</span>
+                <span>Seguimos a los seguidores de nuestros competidores como estrategia de crecimiento orgánico.</span>
+            `;
+            container.parentElement.insertBefore(infoBanner, container);
+
+            bios.slice(0, 50).forEach((user, idx) => {
+                const initials = user.handle.split('_').map(w => w[0]).join('').substring(0, 2).toUpperCase();
+                const sourceCompetitor = competitors[idx % competitors.length];
+                const userUrl = `https://www.instagram.com/${user.handle.replace('@', '')}/`;
+                const card = document.createElement('div');
+                card.className = 'action-card';
+                card.innerHTML = `
+                    <input type="checkbox" onchange="updateCounter('${brand}', 'follows')">
+                    <div class="action-card-content">
+                        <div class="action-card-header">
+                            <div class="action-avatar"></div>
+                            <div class="action-handle"><a href="${userUrl}" target="_blank" rel="noopener">${user.handle}</a></div>
+                        </div>
+                        <div class="action-bio">${user.bio}</div>
+                        <div class="action-source">Fuente: <a href="${sourceCompetitor.url}" target="_blank" rel="noopener">${sourceCompetitor.handle}</a></div>
+                        <div class="action-stats">
+                            <div class="stat-item">
+                                <span class="stat-value">${user.followers}</span>
+                                <span>Seguidores</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">${user.score}%</span>
+                                <span>Score IA</span>
+                            </div>
+                        </div>
+                        <a href="${userUrl}" target="_blank" rel="noopener" class="post-link-btn" style="margin-top: 12px;">Seguir</a>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function renderStories(brand) {
+            const stories = brand === 'niuro' ? niuroStories : enderysStories;
+            const container = document.getElementById(brand + '-stories-grid');
+            container.innerHTML = '';
+
+            // Add info banner
+            const infoBanner = document.createElement('div');
+            infoBanner.className = 'info-banner';
+            infoBanner.innerHTML = `
+                <span>ℹ️</span>
+                <span>Reposteamos contenido de medios tech, líderes de opinión y marcas estratégicas.</span>
+            `;
+            container.parentElement.insertBefore(infoBanner, container);
+
+            stories.slice(0, 10).forEach((post, idx) => {
+                const card = document.createElement('div');
+                card.className = 'action-card';
+                const postLinkHTML = post.postUrl ? `<a href="${post.postUrl}" target="_blank" rel="noopener" class="post-link-btn">Ver post original</a>` : '';
+                const commentsHTML = post.comments ? `<span class="stat-value">${post.comments}</span><span>Comentarios</span>` : '';
+                const suggestionHTML = post.suggestion ? `<div class="action-badge" style="background: #ecfdf5; color: #10b981; margin-top: 12px; display: block; padding: 8px 12px; border-radius: 4px; font-size: 12px; font-weight: 500;">💡 ${post.suggestion}</div>` : '';
+                card.innerHTML = `
+                    <input type="checkbox" onchange="updateCounter('${brand}', 'stories')">
+                    <div class="action-card-content">
+                        <div class="action-card-header">
+                            <div class="action-avatar"></div>
+                            <div class="action-handle"><a href="${post.url}" target="_blank" rel="noopener">${post.author}</a></div>
+                        </div>
+                        <div class="action-bio">${post.caption}</div>
+                        <div class="action-stats">
+                            <div class="stat-item">
+                                <span class="stat-value">${post.engagement}</span>
+                                <span>Likes</span>
+                            </div>
+                            ${commentsHTML ? `<div class="stat-item">${commentsHTML}</div>` : ''}
+                            <div class="stat-item">
+                                <span class="stat-value">${post.brand_score}%</span>
+                                <span>Alineación</span>
+                            </div>
+                        </div>
+                        <div class="action-badge">Trending Ahora</div>
+                        ${suggestionHTML}
+                        ${postLinkHTML}
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function renderComments(brand) {
+            const comments = brand === 'niuro' ? niuroComments : enderysComments;
+            const container = document.getElementById(brand + '-comments-grid');
+            container.innerHTML = '';
+
+            // Add info banner
+            const infoBanner = document.createElement('div');
+            infoBanner.className = 'info-banner';
+            infoBanner.innerHTML = `
+                <span>ℹ️</span>
+                <span>Comentamos en posts de partners, líderes de opinión, medios y marcas tech.</span>
+            `;
+            container.parentElement.insertBefore(infoBanner, container);
+
+            comments.slice(0, 10).forEach((item, idx) => {
+                const card = document.createElement('div');
+                card.className = 'comment-card';
+                const postLinkHTML = item.postUrl ? `<a href="${item.postUrl}" target="_blank" rel="noopener" class="post-link-btn">Ver post original</a>` : '';
+                const followersHTML = item.followers ? `<div style="font-size: 12px; color: #64748b; margin-bottom: 8px;"><strong>Seguidores:</strong> ${item.followers.toLocaleString()}</div>` : '';
+                card.innerHTML = `
+                    <div style="display: flex; gap: 12px;">
+                        <input type="checkbox" onchange="updateCounter('${brand}', 'comments')">
+                        <div style="flex: 1;">
+                            <div class="comment-header">
+                                <div class="comment-post-info">
+                                    <div class="comment-author"><a href="${item.url}" target="_blank" rel="noopener">${item.author}</a></div>
+                                </div>
+                            </div>
+                            ${followersHTML}
+                            <div class="comment-caption"><strong>Post:</strong> "${item.caption}"</div>
+                            <textarea class="comment-textarea" placeholder="Edita el comentario aquí...">${item.suggested}</textarea>
+                            <span class="comment-tone">${item.tone.toUpperCase()}</span>
+                            ${postLinkHTML}
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function updateCounter(brand, action) {
+            const container = action === 'follows'
+                ? document.getElementById(brand + '-follows-grid')
+                : action === 'stories'
+                ? document.getElementById(brand + '-stories-grid')
+                : document.getElementById(brand + '-comments-grid');
+
+            const checkboxes = container.querySelectorAll('input[type="checkbox"]');
+            const checkedCount = Array.from(checkboxes).filter(cb => cb.checked).length;
+
+            const max = action === 'follows' ? 30 : 5;
+            const counterEl = document.getElementById(brand + '-' + action + '-count');
+            counterEl.textContent = checkedCount;
+
+            // Update cards styling
+            checkboxes.forEach((cb, idx) => {
+                const card = cb.closest('.action-card') || cb.closest('.comment-card');
+                if (cb.checked) {
+                    card.classList.add('selected');
+                } else {
+                    card.classList.remove('selected');
+                }
+            });
+
+            // Update progress
+            updateProgress(brand);
+        }
+
+        function updateProgress(brand) {
+            const followsDone = document.querySelectorAll('#' + brand + '-follows-grid input[type="checkbox"]:checked').length;
+            const storiesDone = document.querySelectorAll('#' + brand + '-stories-grid input[type="checkbox"]:checked').length;
+            const commentsDone = document.querySelectorAll('#' + brand + '-comments-grid input[type="checkbox"]:checked').length;
+
+            document.getElementById(brand + '-follows-done').textContent = Math.min(followsDone, 30);
+            document.getElementById(brand + '-stories-done').textContent = Math.min(storiesDone, 5);
+            document.getElementById(brand + '-comments-done').textContent = Math.min(commentsDone, 5);
+
+            const total = (Math.min(followsDone, 30) / 30 + Math.min(storiesDone, 5) / 5 + Math.min(commentsDone, 5) / 5) / 3 * 100;
+            document.getElementById(brand + '-total-progress').textContent = Math.round(total);
+
+            document.getElementById(brand + '-follows-bar').style.width = (Math.min(followsDone, 30) / 30 * 100) + '%';
+            document.getElementById(brand + '-stories-bar').style.width = (Math.min(storiesDone, 5) / 5 * 100) + '%';
+            document.getElementById(brand + '-comments-bar').style.width = (Math.min(commentsDone, 5) / 5 * 100) + '%';
+        }
+
+        function resetSelection(brand, action) {
+            const container = action === 'follows'
+                ? document.getElementById(brand + '-follows-grid')
+                : action === 'stories'
+                ? document.getElementById(brand + '-stories-grid')
+                : document.getElementById(brand + '-comments-grid');
+
+            container.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+                cb.checked = false;
+            });
+
+            updateCounter(brand, action);
+        }
+
+        function executeAction(brand, action) {
+            const count = document.getElementById(brand + '-' + action + '-count').textContent;
+            if (count === '0') {
+                alert('⚠️ Selecciona al menos una opción para ejecutar.');
+                return;
+            }
+
+            const actionLabels = {
+                'follows': 'Seguir',
+                'stories': 'Crear Stories',
+                'comments': 'Publicar Comentarios'
+            };
+
+            alert(`✅ ${actionLabels[action]} completado!\n\nAcción: ${count} items ejecutados.\n\nBrand: ${brand.toUpperCase()}\n\nEn producción, esto ejecutaría las APIs de Instagram.`);
+        }
+
+        function toggleCollapsible(element) {
+            const parent = element.closest('.collapsible');
+            parent.classList.toggle('collapsed');
+        }
+
+        // Competitor monitoring event tracker
+        function trackCompetitorMonitoring() {
+            const competitors = document.querySelectorAll('.competitor-card.active').length;
+            return competitors;
+        }
+    </script>
+</body>
+</html>
